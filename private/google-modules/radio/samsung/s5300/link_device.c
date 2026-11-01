@@ -2724,14 +2724,14 @@ static void pcie_send_ap2cp_irq(struct mem_link_device *mld, u16 mask)
 	spin_lock_irqsave(&mc->pcie_tx_lock, flags);
 
 	if (mutex_is_locked(&mc->pcie_onoff_lock)) {
-		mif_info_limited("Reserve doorbell interrupt: PCI on/off working\n");
+		mif_debug("Reserve doorbell interrupt: PCI on/off working\n");
 		set_ctrl_msg(&mld->ap2cp_msg, mask);
 		mc->reserve_doorbell_int = true;
 		goto exit;
 	}
 
 	if (!mc->pcie_powered_on || !mc->s51xx_pdev) {
-		mif_info_limited("Reserve doorbell interrupt: PCI endpoint not ready\n");
+		mif_debug("Reserve doorbell interrupt: PCI endpoint not ready\n");
 		set_ctrl_msg(&mld->ap2cp_msg, mask);
 		mc->reserve_doorbell_int = true;
 		if (!mc->pcie_powered_on)
