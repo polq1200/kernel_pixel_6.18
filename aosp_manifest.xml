@@ -2,12 +2,13 @@
 <manifest>
   <remote name="aosp" fetch="https://android.googlesource.com/"/>
   <remote name="grapheneos" fetch="https://github.com/GrapheneOS/"/>
+  <remote name="personal" fetch="https://github.com/polq1200/"/>
   <default revision="main-kernel-2026" remote="aosp" sync-c="true" sync-j="32"/>
 
   <project name="kernel_build" path="build/kernel" remote="grapheneos" revision="5720ea70c1823c44acb7703edc68be3946312880" upstream="refs/heads/17" dest-branch="refs/heads/17" groups="dependencies,ddk">
     <linkfile dest="MODULE.bazel" src="kleaf/bzlmod/bazel.MODULE.bazel"/>
   </project>
-  <project name="kernel_common-6.18" path="common" remote="grapheneos" revision="320aa649ab890e14f3c93457d22c47c4693a5227" upstream="refs/heads/17-pixel" dest-branch="refs/heads/17-pixel" groups="dependencies">
+  <project name="kernel_common_graphene-6.18" path="common" remote="personal" revision="refs/heads/17-pixel" upstream="refs/heads/17-pixel" dest-branch="refs/heads/17-pixel" groups="dependencies">
     <linkfile dest=".clang-format" src=".clang-format"/>
     <linkfile dest="aosp" src="."/>
   </project>
