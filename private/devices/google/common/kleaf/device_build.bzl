@@ -313,7 +313,6 @@ def device_build(
     pkg_files(
         name = target_kunit_modules_pkg,
         srcs = [
-            "//common:kernel_aarch64/lib/kunit/kunit.ko",
             target_kunit_modules_install,
         ],
         prefix = "kunit_test_modules",
